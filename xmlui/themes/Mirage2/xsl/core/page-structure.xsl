@@ -311,6 +311,37 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </title>
+
+            <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
+           <title>
+                <xsl:choose>
+                    <xsl:when test="starts-with($request-uri, 'page/derechosautor')">
+                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="not($page_title)">
+                        <xsl:text>Derechos De Autor</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of select="$page_title/node()" />
+                    </xsl:otherwise>
+                </xsl:choose>
+            </title>
+
+
+            <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
+           <title>
+                <xsl:choose>
+                    <xsl:when test="starts-with($request-uri, 'page/preguntas')">
+                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="not($page_title)">
+                        <xsl:text>Preguntas Frecuentes</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of select="$page_title/node()" />
+                    </xsl:otherwise>
+                </xsl:choose>
+            </title>
             <!-- Head metadata in item pages -->
             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='xhtml_head_item']">
                 <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='xhtml_head_item']"
@@ -569,9 +600,41 @@
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                 </ul>
                             </xsl:when>
+                            <xsl:when test="./@target">
+                    <a role="menuitem">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="./@target"/>
+                        </xsl:attribute>
+                        <xsl:if test="position()=1">
+                            <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                        </xsl:if>
+                        <xsl:apply-templates />
+                    </a>
+                </xsl:when>
                           <xsl:when test="starts-with($request-uri, 'page/enlaces')">
                                 <ul class="breadcrumb">
-                                    <xsl:text>Enlaces De Interes</xsl:text>
+                                    <xsl:text>Enlaces De Interés</xsl:text>
+                                </ul>
+                            </xsl:when>
+                            <xsl:when test="./@target">
+                    <a role="menuitem">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="./@target"/>
+                        </xsl:attribute>
+                        <xsl:if test="position()=1">
+                            <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                        </xsl:if>
+                        <xsl:apply-templates />
+                    </a>
+                </xsl:when>
+                            <xsl:when test="starts-with($request-uri, 'page/derechosautor')">
+                                <ul class="breadcrumb">
+                                    <xsl:text>Derechos De Autor</xsl:text>
+                                </ul>
+                            </xsl:when>
+                            <xsl:when test="starts-with($request-uri, 'page/preguntas')">
+                                <ul class="breadcrumb">
+                                    <xsl:text>Preguntas Frecuentes</xsl:text>
                                 </ul>
                             </xsl:when>
 
@@ -971,7 +1034,7 @@
                 
             </xsl:if>
                 </xsl:when>
-
+               <!-- SECCION ENLACES -->
                 <xsl:when test="starts-with($request-uri, 'page/enlaces')">
                     <div class="hero-unit">
                         <h2 class="">
@@ -1015,6 +1078,90 @@
 <p><a href="https://orcid.org/" target="_blank" rel="noopener noreferrer"><img src="https://www.cial.uam-csic.es/pagperso/foodomics/assets/img/Miguel/orcid.jpg" alt=""  width="250" height="105"/></a></p><br/><br/>
 <p>ORCID (Open Researcher and Contributor ID) es una organización internacional sin ánimo de lucro que proporciona un identificador basado en la norma ISO 27729:2012, Information and documentation – International Standard Name Identifier (ISNI), que permite a los investigadores disponer de un código de autor persistente e inequívoco para distinguir claramente su producción académica. Esta iniciativa pretende garantizar la distinción inequívoca de la producción académica de los investigadores y ser un método efectivo para poder enlazar las actividades de investigación referenciadas en diferentes sistemas de información.</p><br/><br/>
 <hr />
+    
+        </div>
+                </xsl:when>
+                    <!-- SECCION DERECHOS DE AUTOR -->
+
+                 <xsl:when test="starts-with($request-uri, 'page/derechosautor')">
+                    <div class="hero-unit">
+                        <h2 class="">
+                <span class="strong_underline">Derechos De Autor</span>
+                <span class="uca_listdate"></span>
+            </h2><br/><br/>
+
+
+<p>Desde el mismo momento de la creación de una obra, la ley reconoce unos derechos al autor de la misma. Estos derechos de autor se dividen en derechos morales y derechos de explotación o patrimoniales. Los derechos morales de autoría e integridad de la obra son irrenunciables e inalienables. Los derechos de explotación de su obra en cualquier forma y, en especial, los derechos de reproducción, distribución, comunicación pública y transformación no podrán ser realizadas sin el permiso del autor.</p><br/><br/>
+
+<p>Los derechos morales otorgan al autor el derecho a ser reconocido como tal y son intransferibles. Sin embargo los derechos de explotación pueden ser cedidos a terceros como ocurre con las obras publicadas:</p><br/>
+
+<p align="center"><img src="{$theme-path}/images/derechosautor.jpg" width="550" height="305"/></p><br/><br/>
+<hr />
+<h3>Derechos de autor y autoarchivo</h3><br/><br/>
+
+<p>Cuando un autor quiere depositar una obra en el repositorio, debe estar en condiciones de garantizar que dichos contenidos están libres de restricciones de derechos de copia. Para ello, hay que distinguir si la obra es inédita o ha sido ya publicada.</p><br/>
+
+<p><b>– Obras inéditas:</b> En este caso el autor conserva los derechos de explotación de su obra y simplemente tiene que autorizar al Instituto Tecnológico De Orizaba a difundir su documento a través del Repositorio, mediante la aceptación de una Licencia de Distribución No Exclusiva, es decir, un contrato entre el autor y el nstituto Tecnológico De Orizaba, que permite  distribuir y preservar su trabajo, pero el autor conserva todos los derechos sobre su obra.</p><br/><br/>
+
+<p>En algunos casos las editoriales no aceptan trabajos ya difundidos a través de repositorios, por este motivo es aconsejable por parte del autor conocer los contratos y las políticas de autoarchivo de las editoriales, para su posterior publicación.</p><br/><br/>
+
+
+<p><b>– Obras ya publicadas:</b> Antes de incluir una obra ya publicada en el Repositorio TecNM Orizaba, el autor debe conocer las condiciones de cesión de los derechos de explotación de su obra y la política de autoarchivo de la editorial. Aunque la mayoría de los editores permiten el archivo del pre-print (el borrador del texto a publicar antes de la revisión por pares) se recomienda consultar la política de los editores.</p><br/><br/>
+
+<p>En caso de que el autor desconozca en qué condiciones ha transferido sus derechos de explotación (reproducción, distribución o comunicación pública) a un editor, puede consultar la hoja de aceptación de las normas de publicación o la hoja de cesión de derechos, en el caso de revistas o congresos, o el contrato de edición en el caso de monografías.</p><br/><br/>
+
+<h3>Licencias Creative Commons</h3><br/><br/>
+
+<p>En el momento de autoarchivar su obra, el autor puede decidir sobre el uso que podrán hacer de ella mediante una Licencia Creative Commons, las cuales le permiten mantener sus derechos como autor a la vez que concede a terceros ciertos usos bajo determinadas condiciones.</p><br/><br/>
+
+<p>Todas las licencias Creative Commons obligan al reconocimiento del autor de la obra, facilitando el uso, y al mismo tiempo salvaguardando la atribución de la obra al autor e impidiendo una posible utilización comercial sin permiso. Las licencias Creative Commons ofrecen algunos derechos a terceras personas bajo cuatro condiciones: Reconocimiento, No comercial, Sin obras derivadas y Compartir igual, con las que se generan seis modelos de licencias:</p><br/><br/>
+
+<p align="center"><img src="{$theme-path}/images/commons.jpg" width="550" height="305"/></p><br/><br/>
+<p>Existen dos licencias Creative Commons para el dominio público, es decir, para que los trabajos puedan ser redistribuidos y manipulados de manera completamente libre y sin restricciones, ya sea comercial o no comercialmente: CC0, por la que el autor de esta obra ha renunciado a sus derechos de autor a la misma, pasando a formar parte del dominio público; y la etiqueta de Dominio público, que resalta que el trabajo ya se encuentra bajo el dominio público.</p><br/><br/>
+<p>Desde la administración de el Repositorio TecNM Orizaba se recomienda la modalidad de licencia <b>Reconocimiento – No comercial – Sin obra derivada</b>, por la que el autor permite copiar, reproducir, distribuir y comunicar públicamente la obra, siempre y cuando se cite y reconozca al autor original. No se permite, sin embargo, generar una obra derivada de la misma ni utilizarla con finalidades comerciales.</p><br/><br/>
+<p>Asignar una licencia Creative Commons a las obras depositadas en el Repositorio TecNM Orizaba es opcional.</p><br/>
+    
+        </div>
+                </xsl:when>
+
+
+
+
+
+     <!-- SECCION PREGUNTAS FRECUENTES -->
+
+                 <xsl:when test="starts-with($request-uri, 'page/preguntas')">
+                    <div class="hero-unit">
+                        <h2 class="">
+                <span class="strong_underline">Preguntas Frecuentes</span>
+                <span class="uca_listdate"></span>
+            </h2><br/><br/>
+
+<hr />
+<h3>Acerca de</h3><br/><br/>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO1" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué es el Repositorio TecNM Orizaba? ¿Cuáles son sus objetivos?</b> <span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO1" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Qué es Repositorio TecNM Orizaba?</h3>
+<p>Es el Repositorio de Objetos de Docencia e Investigación del Instituto Tecnológico De Orizaba, cuya finalidad es la creación de un archivo o depósito digital para almacenar, preservar y difundir la documentación producto de la actividad científica, docente e institucional.</p>
+<p>El Repositorio TecNM Orizaba permite el acceso libre a la producción científica y académica generada por el Instituto Tecnológico De Orizaba, la preservación de la producción intelectual de la comunidad científica, la divulgación del trabajo desarrollado por docentes e investigadores, y el control y organización de la producción académica.</p>
+<h3>¿Cuáles son sus objetivos?</h3>
+<p>Dentro del movimiento internacional cada vez más extendido de permitir el acceso abierto a la literatura científica, y a los resultados de la investigación generada con fondos públicos, el Repositorio del Intituto Tecnológico De Orizaba tiene como objetivos:</p>
+<ul>
+<li>Incorporar la documentación científica, docente e institucional generada por los investigadores y unidades del ITO</li>
+<li>Asegurar su preservación, organización y libre acceso, garantizando el reconocimiento de los derechos de autor</li>
+<li>Incrementar su visibilidad y difusión dentro de la comunidad científica</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
     
         </div>
                 </xsl:when>
