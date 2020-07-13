@@ -279,8 +279,10 @@
            <link type="text/css" rel="stylesheet">
             <xsl:attribute name="href">http://vjs.zencdn.net/c/video-js.css</xsl:attribute>
             </link>
-            <script src="http://vjs.zencdn.net/c/video.js">&#160;</script>
 
+            <link rel="stylesheet" href="{$theme-path}/images/modal.css" />
+            <script src="http://vjs.zencdn.net/c/video.js">&#160;</script>
+             <script src="https://code.jquery.com/jquery-2.2.4.min.js">&#160;</script>
             <!-- Add the title in -->
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
@@ -1135,10 +1137,10 @@
                         <h2 class="">
                 <span class="strong_underline">Preguntas Frecuentes</span>
                 <span class="uca_listdate"></span>
-            </h2><br/><br/>
-
-<hr />
-<h3>Acerca de</h3><br/><br/>
+            </h2>
+<div class="single_content">
+            <div class="pf-content">
+<h3>Acerca de</h3>
 
 <div class="panel panel-default panel-modal">
 <div data-target="#NUMERO1" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué es el Repositorio TecNM Orizaba? ¿Cuáles son sus objetivos?</b> <span class="glyphicon glyphicon-zoom-in"></span></div>
@@ -1148,7 +1150,7 @@
 <div class="modal-content">
 <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
 <div class="modal-body">
-<h3>¿Qué es Repositorio TecNM Orizaba?</h3>
+<h3>¿Qué es el Repositorio TecNM Orizaba?</h3>
 <p>Es el Repositorio de Objetos de Docencia e Investigación del Instituto Tecnológico De Orizaba, cuya finalidad es la creación de un archivo o depósito digital para almacenar, preservar y difundir la documentación producto de la actividad científica, docente e institucional.</p>
 <p>El Repositorio TecNM Orizaba permite el acceso libre a la producción científica y académica generada por el Instituto Tecnológico De Orizaba, la preservación de la producción intelectual de la comunidad científica, la divulgación del trabajo desarrollado por docentes e investigadores, y el control y organización de la producción académica.</p>
 <h3>¿Cuáles son sus objetivos?</h3>
@@ -1162,7 +1164,298 @@
 </div>
 </div>
 </div>
-    
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO2" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué ventajas tiene para los autores?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO2" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Qué ventajas tiene para los autores?</h3>
+<p>El Repositorio TecNM Orizaba ofrece la posibilidad de incrementar la visibilidad de sus publicaciones, lo que aumenta el impacto y por tanto el número de citas a sus trabajos. Además:</p>
+<ul>
+<li>Permite la preservación de los trabajos depositados</li>
+<li>Asigna una url única y persistente (HANDLE) al trabajo, lo que garantiza un acceso permanente y permite citarlo de forma segura</li>
+<li>Posibilita dar cumplimiento a las políticas nacionales e internacionales respecto a la obligatoriedad de depositar en acceso abierto las publicaciones resultantes de las investigaciones financiadas con fondos públicos</li>
+<li>El proceso de depósito en el Repositorio TecNM Orizaba ofrece la posibilidad de dotar de licencia Creative Commons a los trabajos depositados</li>
+<li>Ofrece acceso a datos estadísticos sobre consultas y descargas de los trabajos<br />
+<span style="line-height: inherit; letter-spacing: -0.06px;"></span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO3" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué documentos contiene el Repositorio TecNM Orizaba?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO3" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Qué documentos contiene el Repositorio TecNM Orizaba?</h3>
+<p>El Repositorio del Instituto Tecnológico De Orizaba puede contener los siguientes tipos de documentos organizados en Comunidades y Colecciones:</p>
+<ul>
+<li>Documentos científicos: artículos de revistas (preprints, postprints, versiones definitivas), contribuciones a Congresos, informes técnicos, tesis doctorales</li>
+<li>Material docente: objetos de aprendizaje, cursos OCW</li>
+<li>Trabajos académicos: Trabajos Fin de Grado, Trabajos Fin de Máster, Proyectos Fin de carrera</li>
+<li>Revistas editadas por el Instittuo Tecnológico De Orizaba</li>
+<li>Patrimonio Bibliográfico</li>
+<li>Documentación institucional</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO4" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Cómo se organiza El Repositorio TecNM Orizaba?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO4" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Cómo se organiza El Repositorio TecNM Orizaba?</h3>
+<p>El Repositorio organiza su contenido en las comunidades y colecciones siguientes:</p>
+<ul>
+<li><strong>Producción científica:</strong> documentos generados por los docentes e investigadores del Instittuo Tecnológico De Orizaba en su labor de investigación: artículos científicos; capítulos de libro, contribuciones a Seminario o Congreso, Tesis, etc.</li>
+<li><strong>Producción docente:</strong> materiales docentes y objetos de aprendizaje elaborados por los profesores e investigadores del Instittuo Tecnológico De Orizaba como apoyo a la labor docente. Incluye monografías, objetos de aprendizaje y materiales docentes universitarios incluidos en la plataforma OpenCourseWare</li>
+<li><strong>Revistas editadas por la Universidad:</strong> artículos de las Revistas editadas por el Instittuo Tecnológico De Orizaba</li>
+<li><strong>Trabajos académicos:</strong> Trabajos Fin de Grado, Trabajos Fin de Máster , Tesinas y Proyectos Fin de carrera</li>
+<li><strong>Producción institucional:</strong> memorias, actos académicos, etc</li>
+<li><strong>Patrimonio bibliográfico:</strong> patrimonio bibliográfico y documental del Instittuo Tecnológico De Orizaba formado por una colección de libros de materias científicas, técnicas y humanísticas editados entre los siglos XVI y XIX accesible a texto completo</li>
+<li><strong>Campus de Excelencia CEI-MAR:</strong> trabajos científicos y académicos asociados al Campus del Instittuo Tecnológico De Orizaba</li>
+</ul>
+<p>Además, el contenido de El Repositorio TecNM Orizaba se puede buscar por:</p>
+<ul>
+<li><strong>Departamentos</strong>: documentos generados por miembros de los Departamentos del Instittuo Tecnológico De Orizaba.</li>
+<li><strong>Grupos de Investigación</strong>: documentos generados por los Grupos de Investigación del Instittuo Tecnológico De Orizaba.</li>
+<li><strong>Institutos de investigación: </strong>documentos generados por los Institutos de investigación del Instittuo Tecnológico De Orizaba.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><!-- FIN panel --></p>
+<h3>Depósito de documentos</h3>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO8" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Quién puede depositar archivos en El Repositorio TecNM Orizaba?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO8" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Quién puede depositar archivos en El Repositorio TecNM Orizaba?</h3>
+<p>Para depositar un documento en El Repositorio TecNM Orizaba es necesario ser un usuario de El Repositorio TecNM Orizaba autorizado.</p>
+<ul>
+<li><strong>Personal Docente e Investigador y Personal de Administración y Servicios del ITO </strong>pueden depositar en El Repositorio TecNM Orizaba accediendo al Repositorio con sus claves de identificación, con registro previo, desde la opción Acceder a Mi cuenta.</li>
+<li><strong>Alumnos del Instituto Tecnológico De Orizaba</strong> autores de trabajos académicos, solicitando permisos de autoarchivo a soporte.repositorio@orizaba.tecnm.mx una vez registrados. Para registrarse, deben acceder a la opción Crear cuenta y completar el formulario.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO9" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Cómo puedo depositar mis archivos?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO9" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Cómo puedo depositar mis archivos?</h3>
+<p>El propio autor puede autoarchivar sus materiales docentes, artículos científicos, tesis, proyectos fin de carrera, etc. Una vez que haya subido sus documentos al Repositorio, estos serán validados por un administrador que aprobará su publicación en el repositorio.</p>
+<p>Para depositar un documento en el repositorio es necesario ser un usuario del Instituto Tecnológico De Orizaba autorizado. Además debe tener permisos en la colección en la que desea colocar su envío. Por defecto, tendrá autorización para las colecciones principales, pero si necesita depositar en otra colección, o desea solicitar la creación de una nueva, deberá dirigirse al administrador mediante correo electrónico a <a href="mailto:soporte.repositorio@orizaba.tecnm.mx">soporte.repositorio@orizaba.tecnm.mx</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO10" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿En qué consiste el procedimiento de depósito o autoarchivo?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO10" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿En qué consiste el procedimiento de depósito o autoarchivo?</h3>
+<p>El procedimiento de depósito consiste en los siguientes pasos:</p>
+<ul>
+<li>Acceder desde la opción Ingresar e identificarse por el método de acceso que le corresponda</li>
+<li>Seleccionar la opción Envíar item </li>
+<li>Seleccionar la colección a la que se va a asignar el nuevo depósito</li>
+<li>Describir el documento de modo que permita su identificación</li>
+<li>Adjuntar el fichero correspondiente</li>
+<li>Revisar los datos del envío</li>
+<li>Asignar una licencia Creative Commons (opcional)</li>
+
+</ul>
+<p>El autor recibirá un correo cuando se haya realizado la validación del depósito por parte del Repositorio TecNM Orizaba, lo que supone la publicación del documento en el repositorio. Al mismo tiempo se le comunicará el enlace persistente (handle) correspondiente al depósito.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO11" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Y si no me aparece la colección en la que me interesa depositar?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO11" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Y si no me aparece la colección en la que me interesa depositar?</h3>
+<p>Si no le aparece la colección en la que desea depositar al seleccionar Envíos de items, contacte con <a href="mailto:soporte.repositorio@orizaba.tecnm.mx">soporte.repositorio@orizaba.tecnm.mx</a> para que le autoricen a depositar en dicha colección.</p>
+<p>Si es alumno del Instituto Tecnológico De Orizaba, debe registrarse primero y enviar posteriormente un correo a<a href="mailto:soporte.repositorio@orizaba.tecnm.mx"> soporte.repositorio@orizaba.tecnm.mx</a> para que le autoricen a depositar en la colección de Trabajos académicos que le interese.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO12" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Se pueden depositar obras inéditas y publicadas?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO12" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Se pueden depositar obras inéditas y publicadas?</h3>
+<p>En el Repositorio TecNM Orizaba se pueden depositar tanto obras inéditas como publicadas. Por tanto, antes de realizar el depósito de un documento, hay que tener en cuenta:</p>
+<ul>
+<li><strong>Obras inéditas:</strong> En este caso el autor conserva los derechos de explotación de su obra y puede depositarla en el repositorio de forma no exclusiva, pudiendo hacer el uso posterior de su obra que considere oportuno.</li>
+<li><strong>Obras ya publicadas:</strong> Antes de publicar en acceso abierto una obra ya publicada, el autor debe conocer las condiciones de cesión de los derechos de explotación de su obra y la política de autoarchivo de la editorial. Aunque la mayoría de los editores permiten el archivo del pre-print (el borrador del texto a publicar antes de la revisión por pares) se recomienda consultar la política de los editores.</li>
+</ul>
+<p>En caso de que el autor desconozca en qué condiciones ha transferido sus derechos de explotación (reproducción, distribución o comunicación pública) a un editor, puede consultar la hoja de aceptación de las normas de publicación o la hoja de cesión de derechos, en el caso de revistas o congresos, o bien el contrato de edición en el caso de monografías.</p>
+<p>Si no dispone de esta información, puede consultar la base de datos Sherpa/Romeo, donde se han analizado las políticas de derechos de autor de los principales editores comerciales científico-técnicos internacionales; o Dulcinea para editoriales españolas.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO13" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Cómo puedo comprobar las políticas editoriales?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO13" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Cómo puedo comprobar las políticas editoriales?</h3>
+<p>Los autores deben tener en cuenta las políticas de propiedad intelectual y los embargos que imponga la editorial en la que se vaya a publicar su trabajo. Se deben comprobar qué versiones se pueden publicar en abierto. En el caso de las revistas, esta información se puede consultar en los directorios existentes.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO14" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Puedo depositar mi documento en más de una colección?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO14" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Puedo depositar mi documento en más de una colección?</h3>
+<p>No, sólo se puede depositar en una colección (por ejemplo, Artículos científicos o Capítulos de libros) pero la administración del Repositorio se encarga de relacionar ese documento para que aparezca además en la colección correspondiente del Departamento al que pertenece el autor. De la misma manera ocurre con los Grupos de investigación.</p>
+</div>
+</div>
+</div>
+</div>
+<p><!-- FIN panel --></p>
+
+<h3>Propiedad intelectual, Derechos de autor y Acceso abierto</h3>
+
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO18" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué es el acceso abierto?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO18" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Qué es el acceso abierto?</h3>
+<p>El Open Access o Acceso abierto es un movimiento internacional cuyo objetivo es conseguir que los resultados de la investigación científica que ha sido financiada con fondos públicos sean accesibles a través de internet a todo el mundo, sin ningún tipo de barrera o restricción. Tiene que ver no sólo con el acceso libre, en línea y gratuito a las publicaciones sino con los derechos de autor sobre el mismo. El Open Archives Initiative (OAI) desarrolla y promueve estándares de interoperatibiblidad que facilitan la difusión, intercambio y acceso a colecciones heterogéneas de documentos científicos y académicos.</p>
+<p>Por "acceso abierto" a la literatura científica se entiende su disponibilidad gratuita en la Internet pública, que permite a cualquier usuario leer, descargar, copiar, distribuir, imprimir, buscar o añadir un enlace al texto completo de esos artículos, rastrearlos para su indización, incorporarlos como datos en un software, o utilizarlos para cualquier otro propósito que sea legal, sin barreras financieras, legales o técnicas, aparte de las que son inseparables del acceso mismo a la Internet. La única limitación a la utilización del documento viene impuesta por los derechos morales de autor, ya que el autor mantiene el control sobre la integridad de sus trabajos y el derecho a ser adecuadamente reconocido y citado.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO19" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué es el derecho de autor?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO19" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Qué es el derecho de autor?</h3>
+<p>El derecho de autor es un conjunto de normas jurídicas y principios que afirman los derechos morales y patrimoniales que la ley concede a los autores por el solo hecho de la creación de una obra literaria, artística, musical, científica o didáctica, esté publicada o inédita.</p>
+<p><strong>Los derechos morales</strong> otorgan al autor el derecho a ser reconocido como tal y a la integridad de su obra, y son intransferibles. Sin embargo <strong>los derechos de explotación</strong> (reproducción, distribución, comunicación pública y transformación) pueden ser cedidos a terceros como ocurre con las obras publicadas.</p>
+<p>En el derecho anglosajón se utiliza la noción de copyright (traducido literalmente como “derecho de copia”) que, por lo general, comprende la parte patrimonial de los derechos de autor (derechos patrimoniales). Una obra pasa al dominio público cuando los derechos patrimoniales han expirado. Una vez pasado el plazo establecido desde la muerte del autor, dicha obra puede ser utilizada en forma libre, respetando los derechos morales.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO20" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿En qué afecta el acceso abierto a la propiedad intelectual?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO20" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿En qué afecta el acceso abierto a la propiedad intelectual?</h3>
+<p>Cuando un autor deposita sus documentos en el Repositorio TecNM Orizaba, conserva todos sus derechos de propiedad intelectual, y por tanto es libre de usar los contenidos depositados para los fines que estime oportunos (depositarlos en otros repositorios, colgar los documentos en web personales, publicarlos en revistas…). Depositar los documentos en el repositorio  no es una alternativa al sistema tradicional de publicación sino un complemento para la difusión del conocimiento, y la conservación de la producción científica de la institución.</p>
+<p>En el momento de realizar el depósito en el repositorio, el autor puede asignar a su obra una licencia Creative Commons, lo que garantiza aún más que sus derechos de autor queden protegidos.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default panel-modal">
+<div data-target="#NUMERO21" class="panel-body" data-toggle="modal" style="cursor: pointer;"><b>¿Qué son las licencias Creative Commons?</b><span class="glyphicon glyphicon-zoom-in"></span></div>
+</div>
+<div id="NUMERO21" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg modal-custom">
+<div class="modal-content">
+<div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button></div>
+<div class="modal-body">
+<h3>¿Qué son las licencias Creative Commons?</h3>
+<p>Una licencia Creative Commoms es un modelo de contrato recomendado para poner información en régimen de consulta libre en la Web, facilitando el uso, y al mismo tiempo salvaguardando la atribución de la obra al autor e impidiendo una posible utilización comercial sin permiso. Esta licencia indica de forma clara a la persona que utilice la información, de qué permisos dispone por parte del autor.</p>
+<p><a href="https://es.creativecommons.org/blog/licencias/">Creative Commons</a> es una organización internacional sin ánimo de lucro que ha desarrollado seis licencias, en base a cuatro condiciones básicas:</p>
+<ul>
+<li>Reconocimiento (Attribution): En cualquier explotación de la obra autorizada por la licencia hará falta reconocer la autoría.</li>
+<li>No Comercial (Non commercial): La explotación de la obra queda limitada a usos no comerciales.</li>
+<li>Sin obras derivadas (No Derivate Works): La autorización para explotar la obra no incluye la transformación para crear una obra derivada.</li>
+<li>Compartir Igual (Share alike): La explotación autorizada incluye la creación de obras derivadas siempre que mantengan la misma licencia al ser divulgadas</li>
+</ul>
+<p>El Repositorio TecNM Orizaba recomienda la licencia <strong>Reconocimiento – No comercial &#8211; Sin obra derivada</strong>, por la que el autor permite copiar, reproducir, distribuir y comunicar públicamente la obra, siempre y cuando se cite y reconozca al autor original. No se permite, sin embargo, generar una obra derivada de la misma ni utilizarla con finalidades comerciales.</p>
+<p>Asignar esta licencia a las obras depositadas en el Repositorio TecNM Orizaba es opcional.</p>
+</div>
+</div>
+</div>
+</div>
+<p><!-- FIN panel --></p>
+</div>
+</div>
         </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
