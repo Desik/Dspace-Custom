@@ -127,37 +127,26 @@
                     <xsl:call-template name="customT"/>
                 </div>
             </div>
-            <!-- DS-984 Add RSS Links to Options Box -->
-            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
-                <div>
-                    <h2 class="ds-option-set-head h6">
-                        <i18n:text>xmlui.feed.header</i18n:text>
-                    </h2>
-                    <div id="ds-feed-option" class="ds-option-set list-group">
-                        <xsl:call-template name="addRSSLinks"/>
-                    </div>
-                </div>
-
-            </xsl:if>
+           
         </div>
     </xsl:template>
 
     <!-- Add each custom links -->
     <xsl:template name="customLinks">
-        <a class="list-group-item active">Sobre Este Repositorio</a>
-        <a href="http://repositorios.orizaba.tecnm.mx:8080/xmlui/page/politicas" class="list-group-item">
+        <a class="list-group-item active">Sobre este Repositorio</a>
+        <a href="/xmlui/page/politicas" class="list-group-item">
             <img src="{$theme-path}/images/politicas.png" height="15" width="15" />
-Politicas Del Repositorio</a>
-        <a href="http://repositorios.orizaba.tecnm.mx:8080/xmlui/page/derechosautor" class="list-group-item">
+Politicas del Repositorio</a>
+        <a href="/xmlui/page/derechosautor" class="list-group-item">
             <img src="{$theme-path}/images/derechos.png" height="15" width="15" />
-Derechos De Autor</a>
-        <a href="http://repositorios.orizaba.tecnm.mx:8080/xmlui/page/enlaces" class="list-group-item">
+Derechos de Autor</a>
+        <a href="/xmlui/page/enlaces" class="list-group-item">
             <img src="{$theme-path}/images/enlaces.png" height="15" width="15" />
-Enlaces De Interés</a>
-        <a href="http://repositorios.orizaba.tecnm.mx:8080/xmlui/page/soporte" class="list-group-item">
+Enlaces de Interés</a>
+        <a href="/xmlui/page/soporte" class="list-group-item">
             <img src="{$theme-path}/images/docentes.png" height="15" width="15" />
 Soporte a Docentes</a>
-        <a href="http://repositorios.orizaba.tecnm.mx:8080/xmlui/page/preguntas" class="list-group-item">
+        <a href="/xmlui/page/preguntas" class="list-group-item">
             <img src="{$theme-path}/images/preguntas.svg" height="15" width="15" />
 Preguntas Frecuentes</a>
     </xsl:template>
@@ -165,36 +154,10 @@ Preguntas Frecuentes</a>
     <!-- Add each custom twitter -->
     <xsl:template name="customT">
         <a class="list-group-item active">Noticias Twitter</a>
-        <a class="twitter-timeline" data-lang="es" data-width="350" data-height="400" href="https://twitter.com/Tecnmorizaba?ref_src=twsrc%5Etfw">Tweets by Tecnmorizaba</a>
+        <a class="twitter-timeline" data-lang="es" data-width="350" data-height="400" href="https://twitter.com/Tecnmorizaba?ref_src=twsrc%5Etfw">Tweets by TecNM Campus Orizaba</a>
         <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </xsl:template>
-    <!-- Add each RSS feed from meta to a list -->
-    <xsl:template name="addRSSLinks">
-        <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
-            <a class="list-group-item">
-                <xsl:attribute name="href">
-                    <xsl:value-of select="."/>
-                </xsl:attribute>
-
-                <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
-
-                <xsl:choose>
-                    <xsl:when test="contains(., 'rss_1.0')">
-                        <xsl:text>RSS 1.0</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="contains(., 'rss_2.0')">
-                        <xsl:text>RSS 2.0</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="contains(., 'atom_1.0')">
-                        <xsl:text>Atom</xsl:text>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="@qualifier"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </a>
-        </xsl:for-each>
-    </xsl:template>
+    
 
     <xsl:template match="dri:options//dri:list">
         <xsl:apply-templates select="dri:head"/>
