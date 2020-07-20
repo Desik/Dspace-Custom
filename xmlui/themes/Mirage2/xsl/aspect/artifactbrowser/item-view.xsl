@@ -41,66 +41,51 @@
 
     <xsl:template name="itemSummaryView-DIM">
 
-    <!-- V.T. Add HTML for the video in a videojs frame -->
- 
-         <xsl:if test="(./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/mp4']) and (./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/webm'])">
- 
-              <!-- V.T. Best guess at aspect ratio of most of our videos -->
-              <video controls="controls" preload="none" width="853" height="480" class="video-js vjs-default-skin" data-setup="">
- 
-                  <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='MOVIEPOSTER']">
-                      <xsl:attribute name="poster">
-                          <xsl:value-of select="./mets:fileSec/mets:fileGrp[@USE='MOVIEPOSTER']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
-                      </xsl:attribute>
-                  </xsl:if>
- 
-                  <source type="video/webm" >
-                  <xsl:attribute name="src">
-                      <xsl:value-of select="./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/webm']/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
-                  </xsl:attribute>
-                  </source>
- 
-                 <source type="video/mp4">
-                 <xsl:attribute name="src">
-                     <xsl:value-of select="./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/mp4']/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
-                 </xsl:attribute>
-                 </source>
- 
-                <!-- V.T. display captions -->
-                <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='text/vtt']">
- 
-                <track kind="captions" srclang="en" label="English" default="default">
-                <xsl:attribute name="src">
-                <xsl:value-of select="./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='text/vtt']/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
-                </xsl:attribute>
-                </track>
-                </xsl:if>
- 
-               </video>
- 
-<hr />
- 
-            </xsl:if>
-        <!-- Generate the info about the item from the metadata section -->
-        <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
-        mode="itemSummaryView-DIM"/>
+    <!-- Add HTML for the video frame -->
+    <xsl:if test="(./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/mp4']) or (./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/webm'])">
 
-        <xsl:copy-of select="$SFXLink" />
+         <!-- Best guess at aspect ratio of most of our videos -->
+         <video controls='controls' style="width:100%; max-width:800px;" width="auto" height="auto" class="video">
+            
+             <source type="video/webm" >
+             <xsl:attribute name="src">
+                 <xsl:value-of
+                    select="./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/webm']/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
+             </xsl:attribute>
+             </source>
 
-        <!-- Generate the Creative Commons license information from the file section (DSpace deposit license hidden by default)-->
-        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']">
-            <div class="license-info table">
-                <p>
-                    <i18n:text>xmlui.dri2xhtml.METS-1.0.license-text</i18n:text>
-                </p>
-                <ul class="list-unstyled">
-                    <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']" mode="simple"/>
-                </ul>
-            </div>
-        </xsl:if>
+            <source type="video/mp4">
+            <xsl:attribute name="src">
+                <xsl:value-of
+                  select="./mets:fileSec/mets:fileGrp[@USE='CONTENT']/mets:file[@MIMETYPE='video/mp4']/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
+            </xsl:attribute>
+            </source>          
+
+          </video>
+       <hr />
+    </xsl:if>
 
 
-    </xsl:template>
+    <!-- Generate the info about the item from the metadata section -->
+    <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
+    mode="itemSummaryView-DIM"/>
+
+    <xsl:copy-of select="$SFXLink" />
+
+    <!-- Generate the Creative Commons license information from the file section (DSpace deposit license hidden by default)-->
+    <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']">
+        <div class="license-info table">
+            <p>
+                <i18n:text>xmlui.dri2xhtml.METS-1.0.license-text</i18n:text>
+            </p>
+            <ul class="list-unstyled">
+                <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']" mode="simple"/>
+            </ul>
+        </div>
+    </xsl:if>
+
+
+</xsl:template>
 
     <!-- An item rendered in the detailView pattern, the "full item record" view of a DSpace item in Manakin. -->
     <xsl:template name="itemDetailView-DIM">
